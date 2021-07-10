@@ -5,7 +5,12 @@
 	const log = console.log
 	const ROOT_PATH = path.join(__dirname, '../')
 	function runMoveDist(projectName) {
-		execCommand(`mv -fu ${ROOT_PATH}/project/${projectName}/dist/* ${ROOT_PATH}/dist/`)
+		const sourcePath = `${ROOT_PATH}/project/${projectName}/dist/*`
+		const targetPath = `${ROOT_PATH}/dist/`
+		if (!fs.existsSync(targetPath)) {
+			execCommand(`mkdir ${ROOT_PATH}/dist/`)
+		}
+		execCommand(`cp -rf ${sourcePath} ${targetPath}`)
 	}
 
 	const projects = fs.readdirSync(`${ROOT_PATH}/project`)
