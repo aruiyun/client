@@ -3,8 +3,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "serve": "vite preview",
-    "deploy": "yarn build && sshpass -p liuarui scp -r ./dist/. root@192.168.0.196:/usr/share/nginx/html/"
+    "serve": "vite preview"
   },
   "dependencies": {
     "antd": "^4.16.6",
