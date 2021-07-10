@@ -13,7 +13,7 @@ function App() {
         </header>
         <section>
           <p>
-            <a href="/">
+            <a href="/cms">
               云文件管理系统
             </a>
 
