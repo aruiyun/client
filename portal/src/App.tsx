@@ -24,6 +24,10 @@ function App() {
             </a>
           </p>
         </section>
+        <footer className="portal-footer">
+          <p>该网站 power By liuarui 的 小米5</p>
+          <p> 安卓手机 yyds !</p>
+        </footer>
       </section>
     </Fragment>
   )

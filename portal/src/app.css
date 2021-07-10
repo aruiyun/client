@@ -12,3 +12,8 @@
     width: 100px;
     height: 100px;
 }
+.portal-footer {
+    margin-top: 50px;
+    color: gray;
+    font-size: 10px;
+}
