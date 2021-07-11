@@ -12,17 +12,28 @@ function App() {
           </h1>
         </header>
         <section>
-          <p>
-            <a href="/cms">
-              云文件管理系统
-            </a>
+          <section>
+            <h2>网站</h2>
+            <p>
+              <a href="/cms">
+                云文件管理系统"(TODO)
+              </a>
 
-          </p>
-          <p>
-            <a href="https://liuarui.github.io/">
-              阿锐的博客
-            </a>
-          </p>
+            </p>
+            <p>
+              <a href="https://liuarui.github.io/">
+                阿锐的博客
+              </a>
+            </p>
+          </section>
+          <section>
+            <h2>工具</h2>
+            <p>
+              <a href="https://github.com/liuarui/easyrun">
+                懒人命令行工具 - easyrun
+              </a>
+            </p>
+          </section>
         </section>
         <footer className="portal-footer">
           <p>该网站 power By liuarui 的 小米5</p>
