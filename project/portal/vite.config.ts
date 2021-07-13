@@ -1,18 +1,19 @@
 import { defineConfig } from 'vite'
 import reactRefresh from '@vitejs/plugin-react-refresh'
 import { injectHtml } from 'vite-plugin-html'
+
 const cdn = {
     js: [
-        'https://cdn.bootcdn.net/ajax/libs/react/17.0.2/umd/react.production.min.js',
-        'https://cdn.bootcdn.net/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js',
-        'https://cdn.bootcdn.net/ajax/libs/antd/4.16.6/antd.min.js',
-        'https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js',
+        // '/public/cdn/react.production.min.js',
+        // '/public/cdn/react-dom.production.min.js',
+        // 'antd.min.js',
+        // 'axios.min.js',
     ],
-    css: ['https://cdn.bootcdn.net/ajax/libs/antd/4.16.6/antd.min.css'],
+    css: ['http://liuarui.free.idcfengye.com/public/4.16.6/antd.min.css'],
 }
 
 export default defineConfig({
-    base: '/',
+    base: 'http://liuarui.free.idcfengye.com/',
     plugins: [
         injectHtml({
             injectData: {
@@ -20,12 +21,12 @@ export default defineConfig({
                     .map((url) => {
                         return `<script src="${url}"></script>`
                     })
-                    .join('\b'),
+                    .join(''),
                 injectCss: cdn.css
                     .map((url) => {
                         return `<link href="${url}" rel="stylesheet">`
                     })
-                    .join('\b'),
+                    .join(''),
             },
         }),
         reactRefresh(),
@@ -35,7 +36,7 @@ export default defineConfig({
     },
     build: {
         rollupOptions: {
-            external: ['antd', 'react', 'react-dom', 'axios'],
+            external: [],
         },
     },
 })
