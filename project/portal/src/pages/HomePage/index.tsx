@@ -1,13 +1,16 @@
 import React, { Fragment, useState } from 'react'
 import './style.css'
-import logo from './logo.png'
+
 function HomePage() {
     return (
         <Fragment>
             <section className="portal-wrap">
                 <header className="portal-header">
                     <h1>
-                        <img className="header-logo" src={logo}></img>
+                        <img
+                            className="header-logo"
+                            src="/public/img/logo.png"
+                        ></img>
                         Aruiyun Portal
                     </h1>
                 </header>
@@ -39,4 +42,4 @@ function HomePage() {
     )
 }
 
-export default App
+export default HomePage

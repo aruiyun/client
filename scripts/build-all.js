@@ -23,6 +23,7 @@
     }
 
     projects.forEach((projectName) => {
+        if (projectName === 'public') return
         try {
             consoleSplitLine()
             log(`当前正在构建项目: ${projectName}`)

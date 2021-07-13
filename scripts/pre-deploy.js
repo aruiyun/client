@@ -8,17 +8,28 @@
 		const sourcePath = `${ROOT_PATH}/project/${projectName}/dist/*`
 		const targetPath = `${ROOT_PATH}/dist/`
 		if (!fs.existsSync(targetPath)) {
-			execCommand(`mkdir ${ROOT_PATH}/dist/`)
+			execCommand(`mkdir ${targetPath}`)
 		}
 		execCommand(`cp -rf ${sourcePath} ${targetPath}`)
 	}
-
+	function runMovePublic() {
+		const sourcePath = `${ROOT_PATH}/project/public/*`
+		const targetPath = `${ROOT_PATH}/dist/public/`
+		if (!fs.existsSync(targetPath)) {
+			execCommand(`mkdir ${targetPath}`)
+		}
+		execCommand(`cp -rf ${sourcePath} ${targetPath}`)
+	}
 	const projects = fs.readdirSync(`${ROOT_PATH}/project`)
 	projects.forEach((projectName) => {
 		try {
 			consoleSplitLine()
 			log('开始搬运', projectName)
-			runMoveDist(projectName)
+			if (projectName === 'public') {
+				runMovePublic()
+			} else {
+				runMoveDist(projectName)
+			}
 			log('搬运完成', projectName)
 			consoleSplitLine()
 		} catch (e) {
