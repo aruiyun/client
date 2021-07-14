@@ -9,11 +9,11 @@ const cdn = {
         // 'antd.min.js',
         // 'axios.min.js',
     ],
-    css: ['http://liuarui.free.idcfengye.com/public/4.16.6/antd.min.css'],
+    css: ['http://liuarui.free.idcfengye.com/public/cdn/antd.min.css'],
 }
 
 export default defineConfig({
-    base: 'http://liuarui.free.idcfengye.com/',
+    base: '/',
     plugins: [
         injectHtml({
             injectData: {
