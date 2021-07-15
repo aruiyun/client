@@ -1,7 +1,25 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import './style.css'
+import { fetchReportList } from '../../api/common'
+import { reportInfo } from '../../utils/reportInfo'
 
 function HomePage() {
+    const [enterUserNum, setEnterUserNum] = useState(0)
+
+    useEffect(() => {
+        reportInfo('portal-homePage', {
+            type: 'load',
+        })
+    }, [])
+
+    useEffect(() => {
+        fetchReportList().then((res) => {
+            if (Array.isArray(res?.DATA)) {
+                setEnterUserNum(res.DATA.length)
+            }
+        })
+    }, [])
+
     return (
         <Fragment>
             <section className="portal-wrap">
@@ -36,6 +54,7 @@ function HomePage() {
                 <footer className="portal-footer">
                     <p>该网站 power By liuarui 的 小米5</p>
                     <p> 安卓手机 yyds !</p>
+                    <p>访问次数: {enterUserNum}</p>
                 </footer>
             </section>
         </Fragment>

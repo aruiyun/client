@@ -11,12 +11,15 @@ export function getApiPath() {
 const service = axios.create({
     baseURL: getApiPath(),
     timeout: 100000,
-    withCredentials: true,
 })
+
+// 禁用withCredentials 原因
+// https://blog.csdn.net/chjj0904/article/details/90268813
+// axios.defaults.withCredentials = true
 
 service.interceptors.request.use(
     (config) => {
-        config.headers['requestType'] = 'ajax'
+        config.headers['Access-Control-Allow-Credentials'] = true
         config.headers['Content-Type'] = 'application/json'
         if (
             config.method === 'post' &&
@@ -28,7 +31,7 @@ service.interceptors.request.use(
     },
     (error) => {
         console.log(error)
-        message.error(`Request Error: ${JSON.stringify(error)}`)
+        // message.error(`Request Error: ${JSON.stringify(error.message)}`)
         Promise.reject(error)
     }
 )
@@ -43,13 +46,17 @@ service.interceptors.response.use(
     },
     (error) => {
         console.log('err', error)
-        message.error(JSON.stringify(error))
+        // message.error(JSON.stringify(error.message))
         return Promise.reject(error)
     }
 )
-
-export const fetch = (param: AxiosRequestConfig) => {
+type resData = {
+    CODE: string
+    DATA: any
+    MSG: string
+}
+export const fetch = (param: AxiosRequestConfig): Promise<resData> => {
     return service({
         ...param,
-    })
+    }) as unknown as Promise<resData>
 }
