@@ -1,1 +1,1 @@
-export const reportApiUrl = ''
+export const reportApiUrl = '/report'
